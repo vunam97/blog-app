@@ -19,6 +19,11 @@ public class PostController {
         return postService.findAll(pageable);
     }
 
+    @GetMapping("/api/v1/posts/{id}")
+    public PostDto findById(@PathVariable("id") Long id) {
+        return postService.findById(id);
+    }
+
     @PostMapping("/api/v1/posts")
     public PostDto create(@RequestBody PostCreateForm form) {
         return postService.create(form);
