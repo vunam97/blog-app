@@ -23,6 +23,12 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
+    public Page<CommentDto> findByPostId(Long postId, Pageable pageable) {
+
+        return commentRepository.findByPostId(postId, pageable).map(CommentMapper::map);
+    }
+
+    @Override
     public CommentDto create(CommentCreateForm form, Long postId) {
         var comment = CommentMapper.map(form);
         var post = postRepository.findById(postId).get();
