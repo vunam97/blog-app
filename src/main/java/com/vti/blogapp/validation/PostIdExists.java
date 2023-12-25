@@ -6,7 +6,6 @@ import jakarta.validation.Payload;
 import java.lang.annotation.*;
 
 import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.ElementType.TYPE_USE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Constraint(validatedBy = PostIdExistsValidator.class)
@@ -14,7 +13,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface PostIdExists {
 
-    String message() default "The post dose it not exist.";
+    String message() default "{post.id.Exists.message}";
 
     Class<?>[] groups() default {};
 
